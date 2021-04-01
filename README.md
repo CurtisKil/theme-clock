@@ -8,13 +8,13 @@ As a new developer, I want to do a daily coding project tutorial to learn new fe
 
 ## Description
 
-A landing page that is split vertically down the middle with two choices to click on. Whenever one side is hovered on that one side will stretch out to 75% of the screen.
+An analog clock with animated hands/needles created with CSS and powered by JavaScript to tick and show the current time. Also, has the date and a digital readout of the time. Along with the option to switch from light to dark mode and vice versa.
 
 ## Demo
 
-![](split-landing.gif)
+![](theme-clock.gif)
 
-https://curtiskil.github.io/split-landing-page/
+https://curtiskil.github.io/theme-clock/
 
 ## Contributors
 
