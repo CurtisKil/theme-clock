@@ -2,8 +2,8 @@ const hourEl = document.querySelector(".hour");
 const minuteEl = document.querySelector(".minute");
 const secondEl = document.querySelector(".second");
 const timeEl = document.querySelector(".time");
-let dateEl = document.querySelector(".date");
-const toggleEl = document.querySelector(".toggle");
+const dateEl = document.querySelector(".date");
+const toggle = document.querySelector(".toggle");
 
 const days = [
   "Sunday",
@@ -29,29 +29,27 @@ const months = [
   "Dec",
 ];
 
-toggleEl.addEventListener("click", (e) => {
+toggle.addEventListener("click", (e) => {
   const html = document.querySelector("html");
-
-  // Check for class of 'dark'
   if (html.classList.contains("dark")) {
     html.classList.remove("dark");
-    e.target.innerHTML = "Dark Mode";
+    e.target.innerHTML = "Dark mode";
   } else {
     html.classList.add("dark");
-    e.target.innerHTML = "Light Mode";
+    e.target.innerHTML = "Light mode";
   }
 });
 
 function setTime() {
   const time = new Date();
   const month = time.getMonth();
-  const date = time.getDate();
   const day = time.getDay();
+  const date = time.getDate();
   const hours = time.getHours();
-  const hoursForClock = hours % 12;
+  const hoursForClock = hours >= 13 ? hours % 12 : hours;
   const minutes = time.getMinutes();
   const seconds = time.getSeconds();
-  const amPm = hours >= 12 ? "pm" : "am";
+  const ampm = hours >= 12 ? "PM" : "AM";
 
   hourEl.style.transform = `translate(-50%, -100%) rotate(${scale(
     hoursForClock,
@@ -60,7 +58,6 @@ function setTime() {
     0,
     360
   )}deg)`;
-
   minuteEl.style.transform = `translate(-50%, -100%) rotate(${scale(
     minutes,
     0,
@@ -68,7 +65,6 @@ function setTime() {
     0,
     360
   )}deg)`;
-
   secondEl.style.transform = `translate(-50%, -100%) rotate(${scale(
     seconds,
     0,
@@ -79,7 +75,7 @@ function setTime() {
 
   timeEl.innerHTML = `${hoursForClock}:${
     minutes < 10 ? `0${minutes}` : minutes
-  } ${amPm}`;
+  } ${ampm}`;
   dateEl.innerHTML = `${days[day]}, ${months[month]} <span class="circle">${date}</span>`;
 }
 
